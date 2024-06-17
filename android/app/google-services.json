@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "406582821668",
+    "project_id": "heal-me-46d89",
+    "storage_bucket": "heal-me-46d89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406582821668:android:d806abb004811a5430a9b1",
+        "android_client_info": {
+          "package_name": "com.example.healme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406582821668-7ombjtllfte2i0k70l33tvb36vvgsl1i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healme",
+            "certificate_hash": "284850f3388a83faee32b97e4e61bdd2b7a9fe47"
+          }
+        },
+        {
+          "client_id": "406582821668-h0fcbb3j14mfe7n31oor640h01sokfsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApIu8QIHcNeFP_k59PiRQyjs5G5rZcskU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406582821668-h0fcbb3j14mfe7n31oor640h01sokfsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

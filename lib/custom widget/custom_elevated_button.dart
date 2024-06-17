@@ -1,0 +1,126 @@
+import 'package:flutter/material.dart';
+
+class CustomElevatedButton extends StatefulWidget {
+  final VoidCallback onPressed;
+  // final void Function() onPressed;
+  final Widget? child;
+  final EdgeInsets? padding;
+  final BorderRadiusGeometry? borderRadius;
+  final String backgroundImage;
+  final String? title;
+  final double? fontSize;
+  final IconData? icon;
+  final double? iconSize;
+  final IconData? trailingIcon;
+  final double? trailingIconSize;
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+
+  const CustomElevatedButton({
+    //Key? key,
+    required this.onPressed,
+    this.child,
+    this.padding = const EdgeInsets.all(16),
+    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.backgroundImage = '',
+    this.title,
+    this.fontSize = 18,
+    this.icon,
+    this.iconSize = 28,
+    this.trailingIcon,
+    this.trailingIconSize = 28,
+    this.mainAxisAlignment = MainAxisAlignment.center,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    super.key,
+  }); // : super(key: key);
+
+  @override
+  State<CustomElevatedButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomElevatedButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Ink(
+      decoration: widget.backgroundImage != ''
+          ? BoxDecoration(
+        borderRadius: widget.borderRadius,
+        image: DecorationImage(
+          image: AssetImage(
+            widget.backgroundImage,
+          ),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(0.2),
+            BlendMode.darken,
+          ),
+        ),
+      )
+          : BoxDecoration(
+        // color: const Color(0xff3d3d3d),
+        borderRadius: widget.borderRadius,
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFFF69170),
+            Color(0xFF7D96E6),
+          ],
+        ),
+      ),
+      child: InkWell(
+        onTap: widget.onPressed,
+        customBorder: RoundedRectangleBorder(
+          borderRadius: widget.borderRadius!,
+        ),
+        child: Padding(
+          padding: widget.padding!,
+          child: Row(
+            mainAxisAlignment: widget.mainAxisAlignment,
+            crossAxisAlignment: widget.crossAxisAlignment,
+            children: [
+              if (widget.icon != null)
+                Icon(
+                  widget.icon,
+                  size: widget.iconSize,
+                  color: Colors.white,
+                ),
+              if (widget.icon != null && widget.title != null)
+                const SizedBox(
+                  width: 10,
+                ),
+              if (widget.title != null)
+                Text(
+                  widget.title!,
+                  style: TextStyle(
+                    fontSize: widget.fontSize,
+                    color: Colors.white,
+                  ),
+                ),
+              if (widget.trailingIcon != null && widget.title != null)
+                const SizedBox(
+                  width: 10,
+                ),
+              if (widget.trailingIcon != null)
+                Icon(
+                  widget.trailingIcon,
+                  size: widget.trailingIconSize,
+                  color: Colors.white,
+                ),
+              // widget.title != null
+              //     ? Text(
+              //         widget.title!,
+              //         style: TextStyle(
+              //          fontSize: widget.fontSize,
+              //          color: Theme.of(context).primaryColor,
+              //         ),
+              //       )
+              //     : Container(),
+              widget.child ?? Container(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
